@@ -1,0 +1,33 @@
+server:
+  port: 8001
+
+
+spring:
+  application:
+    name: cloud-payment-service
+
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource    # 当前数据源操作类型，阿里巴巴的druid
+    driver-class-name: com.mysql.cj.jdbc.Driver # 驱动
+    url: jdbc:mysql://localhost:3306/cloud?useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: root123456
+
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.fengx.springcloud.model
+
+
+eureka:
+  client:
+    # 注册到eureka里，默认为true
+    register-with-eureka: true
+    # 是否从eurekaServer抓取已有的注册信息，默认为true。单节点无所谓，集群必须设置为true，配合ribbon负载均衡
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:7001/eureka/
+
+
+
+
