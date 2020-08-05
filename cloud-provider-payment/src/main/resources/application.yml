@@ -29,7 +29,10 @@ eureka:
 #      defaultZone: http://localhost:7001/eureka/  单机方式访问
     # 集群方式
       defaultZone: http://eureka7001.com:7001/eureka, http://eureka7002.com:7002/eureka
-
+#      可视化界面上显示的名称，以及可以看到ip
+  instance:
+    instance-id: payment8001
+    prefer-ip-address: true
 
 
 
