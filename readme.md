@@ -26,5 +26,7 @@
 
 #### eureka和ribbon
 新版本的eureka默认继承了ribbon，
-ribbon主要是作用在客户端，作为负载均衡，默认轮训。
+ribbon主要是作用在客户端，作为负载均衡，默认轮询。
 自己可以根据需求替换负载规则。
+
+- 根据ribbon的轮询写法，手写LoadBalance算法。
