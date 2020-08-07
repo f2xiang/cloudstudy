@@ -4,6 +4,7 @@ import com.fengx.springcloud.model.CommonResult;
 import com.fengx.springcloud.model.Payment;
 import com.fengx.springcloud.service.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -14,6 +15,9 @@ public class PaymentController {
 
     @Autowired
     private PaymentService paymentService;
+
+    @Value("${server.port}")
+    private String serverPort;
 
 
     @PostMapping("/payment")
@@ -34,7 +38,7 @@ public class PaymentController {
     private CommonResult getById(@PathVariable("id") int id) {
         try {
             Payment payment = paymentService.getPaymentById(id);
-            return new CommonResult(0,payment);
+            return new CommonResult(0,"查询成功，serverport="+serverPort,payment);
         } catch (Exception e) {
             return new CommonResult(-1,"查询失败");
         }
