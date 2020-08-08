@@ -36,6 +36,12 @@ public class PaymentController {
 
     @GetMapping("/payment/{id}")
     private CommonResult getById(@PathVariable("id") int id) {
+//        模拟耗时业务，客户端请求设置超时时间
+//        try {
+//            Thread.sleep(3000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
         try {
             Payment payment = paymentService.getPaymentById(id);
             return new CommonResult(0,"查询成功，serverport="+serverPort,payment);

@@ -30,3 +30,18 @@ ribbon主要是作用在客户端，作为负载均衡，默认轮询。
 自己可以根据需求替换负载规则。
 
 - 根据ribbon的轮询写法，手写LoadBalance算法。
+
+
+#### openFeign
+启动类上，@EnableFeignClients注解
+
+接口上，@FeignClient注解
+
+service写上对应服务名，以及对应的接口地址（provider controller提供出来的地址）。
+
+controller去调用service，通过service到达provider。
+
+实际就是省略了显示的去写restTemplate，
+
+- 超时设置
+- 日志打印
