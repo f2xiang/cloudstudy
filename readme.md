@@ -63,3 +63,18 @@ controller去调用service，通过service到达provider。
 - Hystrix的配置，@HystrixCommand和@HystrixProperty
 - 单个方法做处理，以及全局处理，```@DefaultProperties(defaultFallback = "getGlobalFallback")```
 - 终极版，service的@feignclient注解上加上fallback=xx.java类。出问题，该类做兜底。
+
+
+
+#### Gateway
+##### 三大核心概念
+    web请求，通过一些匹配条件，到达真正的服务节点。在这个转发的前后做一些精细化的控制。
+    而Predicate就是我们的匹配条件，Filter，拦截和过滤，加上目标uri，就可以实现具体的路由了。
+- 路由 Route  
+- 断言 Predicate
+- 过滤 Filter
+    
+    
+
+
+
