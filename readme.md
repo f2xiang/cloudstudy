@@ -45,3 +45,21 @@ controller去调用service，通过service到达provider。
 
 - 超时设置
 - 日志打印
+
+#### Hystrix
+一般配置在客户端，可以和feign做整合。
+
+##### 服务降级：fallback
+    服务器忙，请稍后再试。
+    不让客户端等待并返回一个友好的提示。
+    例如：程序运行异常，超时，服务熔断触发服务降级，线程池/信号量打满
+    
+##### 服务熔断 ：break
+    到达最大访问量后，拒绝继续访问，并调用服务降级，返回友好提示。
+
+##### 服务限流： limit
+    秒杀高并发等操作，严禁一窝蜂过来，大家排队，有序进行
+
+- Hystrix的配置，@HystrixCommand和@HystrixProperty
+- 单个方法做处理，以及全局处理，```@DefaultProperties(defaultFallback = "getGlobalFallback")```
+- 终极版，service的@feignclient注解上加上fallback=xx.java类。出问题，该类做兜底。
